@@ -1,10 +1,10 @@
 # CCDS_TechFest_2025
 This is our first hackathon! 
 ## Project Info
-Project: False Information Detector Chatbox \\
+Project: False Information Detector Chatbox <br/>
 Team Member: Wang Min-Jen, Wu Dong-Ray
 ## Running the Project
-First, clone the repo to local. Then run the following commands.\\
+First, clone the repo to local. Then run the following commands.<br/>
 After running these commands, you should be able to access the application at `localhost:5000`
 ### For MacOS:
 ```bash
