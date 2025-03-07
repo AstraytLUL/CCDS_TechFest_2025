@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TechFest Demo</title>
+  </head>
+  <body>
+    <h1>Welcome to TechFest Demo</h1>
+    <p>The following is our application</p>
+    
+    <!-- Input Form (no action attribute) -->
+    <form id="newsForm">
+      <textarea name="news_text" id="news_text" rows="10" cols="50" placeholder="Enter news text here..."></textarea>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    
+    <!-- Div to display the result -->
+    <div id="result" style="margin-top: 20px;"></div>
+    
+    <script>
+      document.getElementById('newsForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Ensure default form submission is prevented
+        
+        const newsText = document.getElementById('news_text').value;
+        
+        fetch('/process', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json' // Set correct Content-Type header
+          },
+          body: JSON.stringify({ news_text: newsText })
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('result').innerHTML = `<h2>Analysis Result</h2><p>${data.result}</p>`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('result').innerHTML = `<p style="color:red;">An error occurred while processing your request.</p>`;
+        });
+      });
+    </script>
+  </body>
+</html>
