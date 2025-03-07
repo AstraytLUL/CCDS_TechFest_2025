@@ -10,9 +10,6 @@ def analyze_news_with_ollama(news_text):
         f"News Article: {news_text}"
     )
     
-    # This part is for testing
-    prompt = news_text
-    
     response: ChatResponse = chat(model='llama3.2:latest', messages=[
         {
             'role': 'user',
